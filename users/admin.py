@@ -1,35 +1,4 @@
-# User models
-
-# Django
-from django.contrib.auth.models import User
-from django.db import models
-
-# User your models here.
-
-
-class Profile(models.Model):
-    """
-    Profile model
-
-    Proxy Model that extends the base data with other information.
-    """
-    # Relation of  user table
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    # Campos extendidos
-    website = models.URLField(max_length=200, blank=True)
-    biography = models.TextField(blank=True)
-    phone_number = models.CharField(max_length=20, blank=True)
-
-    picture = models.ImageField(
-        upload_to='users/pictures',
-        blank=True,
-        null=True
-    )
-
-    # time
-    created = models.DateTimeField(auto_now_add=True)
-    modified = models.DateTimeField(auto"""User admin classes."""
+"""User admin classes."""
 
 # Django
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
@@ -120,8 +89,3 @@ class UserAdmin(BaseUserAdmin):
 admin.site.unregister(User)
 # admin.site.register(Modelo,Clase)
 admin.site.register(User, UserAdmin)
-_now=True)
-
-    def __str__(self):
-        """Return username"""
-        return self.user.username
