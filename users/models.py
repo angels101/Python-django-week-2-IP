@@ -26,6 +26,10 @@ class Profile(models.Model):
         blank=True,
         null=True
     )
+    #@property
+    #def photo_url(self):
+      #  if self.photo_photo and hasattr(self.photo, 'url')
+       # return self.photo_url
 
     # time
     created = models.DateTimeField(auto_now_add=True)
